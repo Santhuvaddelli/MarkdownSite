@@ -1,33 +1,82 @@
+/* Import Modern Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
 body {
-    font-family: Arial;
-    background: #f4f6f8;
     margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #eef2f3, #dfe9f3);
+    color: #2c3e50;
 }
 
+/* Header */
 header {
-    background: #1e1e1e;
+    background: #111827;
     color: white;
-    padding: 15px;
+    padding: 25px 40px;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
+/* Main Container */
 .container {
-    max-width: 800px;
-    margin: 30px auto;
+    max-width: 1000px;
+    margin: 50px auto;
     background: white;
-    padding: 25px;
-    border-radius: 8px;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
+/* Article Titles */
+h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    color: #111827;
+}
+
+h2 {
+    margin-top: 30px;
+    color: #2563eb;
+}
+
+h3 {
+    color: #374151;
+}
+
+/* Links */
 a {
     text-decoration: none;
-    color: #0077cc;
-    font-size: 18px;
+    color: #2563eb;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
 a:hover {
-    color: #ff4d4d;
+    color: #1e40af;
 }
 
+/* List */
 li {
     margin-bottom: 15px;
+    font-size: 18px;
+}
+
+/* Markdown Paragraph */
+p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* Code Block */
+pre {
+    background: #1e293b;
+    color: #f8fafc;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+code {
+    font-family: Consolas, monospace;
 }
