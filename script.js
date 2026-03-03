@@ -10,23 +10,35 @@ if (document.getElementById("postList")) {
 
             const postList = document.getElementById("postList");
 
-            // // For standalone files
-            // const generalSection = document.createElement("div");
-            // const generalTitle = document.createElement("h2");
-            // generalTitle.textContent = "GENERAL";
-            // const generalList = document.createElement("ul");
-
-            let hasGeneral = false;
-
             for (const item of items) {
 
                 // -----------------------
-                // If it's a FOLDER
+                // If it's a DIRECT .md file
+                // -----------------------
+                if (item.type === "file" && item.name.endsWith(".md")) {
+
+                    const title = item.name
+                        .replace(".md", "")
+                        .replace(/-/g, " ");
+
+                    const li = document.createElement("li");
+
+                    li.innerHTML = `
+                        <a href="post.html?file=${item.name}">
+                            ${title}
+                        </a>
+                    `;
+
+                    postList.appendChild(li);
+                }
+
+                // -----------------------
+                // If it's a FOLDER (Category)
                 // -----------------------
                 if (item.type === "dir") {
 
                     const categorySection = document.createElement("div");
-                    categorySection.style.marginBottom = "40px";
+                    categorySection.style.marginTop = "40px";
 
                     const categoryTitle = document.createElement("h2");
                     categoryTitle.textContent = item.name.toUpperCase();
@@ -60,34 +72,6 @@ if (document.getElementById("postList")) {
                     categorySection.appendChild(ul);
                     postList.appendChild(categorySection);
                 }
-
-                // -----------------------
-                // If it's a DIRECT .md file
-                // -----------------------
-                if (item.type === "file" && item.name.endsWith(".md")) {
-
-                    hasGeneral = true;
-
-                    const title = item.name
-                        .replace(".md", "")
-                        .replace(/-/g, " ");
-
-                    const li = document.createElement("li");
-
-                    li.innerHTML = `
-                        <a href="post.html?file=${item.name}">
-                            ${title}
-                        </a>
-                    `;
-
-                    generalList.appendChild(li);
-                }
-            }
-
-            if (hasGeneral) {
-                generalSection.appendChild(generalTitle);
-                generalSection.appendChild(generalList);
-                postList.appendChild(generalSection);
             }
 
         });
