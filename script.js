@@ -9,11 +9,11 @@ if (document.getElementById("postList")) {
 
     fetch(`https://api.github.com/repos/${username}/${repo}/contents/${baseFolder}`)
         .then(res => res.json())
-        .then(data => {
+        .then(async folders => {
 
             const postList = document.getElementById("postList");
 
-            data.forEach(folder => {
+            for (const folder of folders) {
 
                 if (folder.type === "dir") {
 
@@ -27,38 +27,34 @@ if (document.getElementById("postList")) {
 
                     const ul = document.createElement("ul");
 
-                    // Fetch files inside this folder
-                    fetch(folder.url)
-                        .then(res => res.json())
-                        .then(files => {
+                    // Wait for files before continuing
+                    const response = await fetch(folder.url);
+                    const files = await response.json();
 
-                            files.forEach(file => {
+                    files.forEach(file => {
 
-                                if (file.name.endsWith(".md")) {
+                        if (file.name.endsWith(".md")) {
 
-                                    const title = file.name
-                                        .replace(".md", "")
-                                        .replace(/-/g, " ");
+                            const title = file.name
+                                .replace(".md", "")
+                                .replace(/-/g, " ");
 
-                                    const li = document.createElement("li");
+                            const li = document.createElement("li");
 
-                                    li.innerHTML = `
-                                        <a href="post.html?category=${folder.name}&file=${file.name}">
-                                            ${title}
-                                        </a>
-                                    `;
+                            li.innerHTML = `
+                                <a href="post.html?category=${folder.name}&file=${file.name}">
+                                    ${title}
+                                </a>
+                            `;
 
-                                    ul.appendChild(li);
-                                }
-                            });
-
-                        });
+                            ul.appendChild(li);
+                        }
+                    });
 
                     categorySection.appendChild(ul);
                     postList.appendChild(categorySection);
                 }
-
-            });
+            }
 
         });
 }
