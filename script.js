@@ -10,11 +10,11 @@ if (document.getElementById("postList")) {
 
             const postList = document.getElementById("postList");
 
-            // For standalone files
-            const generalSection = document.createElement("div");
-            const generalTitle = document.createElement("h2");
-            generalTitle.textContent = "GENERAL";
-            const generalList = document.createElement("ul");
+            // // For standalone files
+            // const generalSection = document.createElement("div");
+            // const generalTitle = document.createElement("h2");
+            // generalTitle.textContent = "GENERAL";
+            // const generalList = document.createElement("ul");
 
             let hasGeneral = false;
 
