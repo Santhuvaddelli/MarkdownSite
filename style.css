@@ -1,47 +1,54 @@
-/* Import Modern Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #eef2f3, #dfe9f3);
-    color: #2c3e50;
+    font-family: 'Inter', sans-serif;
+    background: #f5f7fa;
+    color: #1f2937;
 }
 
 /* Header */
-header {
-    background: #111827;
-    color: white;
+.main-header {
+    background: white;
     padding: 25px 40px;
-    font-size: 24px;
-    font-weight: 600;
-    letter-spacing: 1px;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
-/* Main Container */
+.main-header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.site-title {
+    font-size: 24px;
+}
+
+/* Back button */
+.back-btn {
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* Container */
 .container {
-    max-width: 1000px;
+    max-width: 900px;
     margin: 50px auto;
     background: white;
     padding: 50px;
-    border-radius: 15px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
-/* Article Titles */
-h1 {
-    font-size: 42px;
-    margin-bottom: 20px;
-    color: #111827;
-}
-
+/* Category Titles */
 h2 {
-    margin-top: 30px;
     color: #2563eb;
-}
-
-h3 {
-    color: #374151;
+    margin-top: 40px;
 }
 
 /* Links */
@@ -49,34 +56,37 @@ a {
     text-decoration: none;
     color: #2563eb;
     font-weight: 500;
-    transition: 0.3s;
 }
 
 a:hover {
     color: #1e40af;
 }
 
-/* List */
+/* List spacing */
 li {
-    margin-bottom: 15px;
+    margin: 12px 0;
     font-size: 18px;
 }
 
-/* Markdown Paragraph */
-p {
+/* Markdown Content */
+#content h1 {
+    font-size: 36px;
+}
+
+#content h2 {
+    font-size: 24px;
+}
+
+#content p {
     font-size: 18px;
     line-height: 1.8;
 }
 
-/* Code Block */
+/* Code blocks */
 pre {
-    background: #1e293b;
-    color: #f8fafc;
+    background: #111827;
+    color: white;
     padding: 20px;
     border-radius: 10px;
     overflow-x: auto;
-}
-
-code {
-    font-family: Consolas, monospace;
 }
