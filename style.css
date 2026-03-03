@@ -1,0 +1,33 @@
+body {
+    font-family: Arial;
+    background: #f4f6f8;
+    margin: 0;
+}
+
+header {
+    background: #1e1e1e;
+    color: white;
+    padding: 15px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+a {
+    text-decoration: none;
+    color: #0077cc;
+    font-size: 18px;
+}
+
+a:hover {
+    color: #ff4d4d;
+}
+
+li {
+    margin-bottom: 15px;
+}
